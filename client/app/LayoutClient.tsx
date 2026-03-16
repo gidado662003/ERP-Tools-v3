@@ -1,6 +1,7 @@
 "use client";
 
-import TokenHandler from "../components/TokenHandler";
+
+import UserAuth from "../components/TokenHandler";
 import DevAuthInitializer from "../components/DevAuthInitializer";
 
 export default function LayoutClient({
@@ -12,7 +13,7 @@ export default function LayoutClient({
 }) {
   return (
     <>
-      <TokenHandler />
+      <UserAuth />
       {children}
     </>
   );

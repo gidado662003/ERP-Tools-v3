@@ -28,4 +28,5 @@ export const authAPI = {
       throw error;
     }
   },
+  authenticated: async () => {},
 };

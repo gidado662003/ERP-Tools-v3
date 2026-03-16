@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -26,6 +27,7 @@ import { authAPI } from "@/lib/userApi";
 
 export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -38,8 +40,9 @@ export default function SignUpPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await authAPI.register(formData);
+      const data = await authAPI.register(formData);
       toast.success("Account created successfully!");
+      router.push("/auth/login");
     } catch (error: any) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
