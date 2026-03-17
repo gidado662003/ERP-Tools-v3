@@ -17,8 +17,9 @@ const NODE_ENV = process.env.NODE_ENV;
 
 const io = new Server(server, {
   cors: {
-    origin: CORS_ORIGIN,
+    origin: ["http://localhost:3000", "https://erp-tools-v3.vercel.app"],
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 

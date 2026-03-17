@@ -37,6 +37,9 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(morgan("dev"));
+app.use("/", (req, res) => {
+  res.send("Hello");
+});
 app.use("/api", allRoutes);
 
 module.exports = app;
