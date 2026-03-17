@@ -9,10 +9,18 @@ const app = express();
 app.use(cookieParser());
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || "http://localhost:3000", // Allow your frontend
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // Allow cookies/auth headers
+  credentials: true,
 };
 
 app.use("/uploads", express.static("public/uploads"));
