@@ -8,9 +8,12 @@ export default function userAuth() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await fetch("http://localhost:5001/api/auth/me", {
-          credentials: "include",
-        }).then((res) => res.json());
+        const userData = await fetch(
+          "https://erp-tools-v3-1.onrender.com/api/auth/me",
+          {
+            credentials: "include",
+          },
+        ).then((res) => res.json());
         setUser(userData.user);
       } catch (error) {
         setUser(null);
