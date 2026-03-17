@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5001/api/user";
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  "https://erp-tools-v3-1.onrender.com/api/user";
 
 export const authAPI = {
   register: async (formData: {
@@ -28,5 +29,4 @@ export const authAPI = {
       throw error;
     }
   },
-  authenticated: async () => {},
 };

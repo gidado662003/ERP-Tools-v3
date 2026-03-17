@@ -1,7 +1,8 @@
 import { io } from "socket.io-client";
 
 const SERVER_URL =
-  process.env.NEXT_PUBLIC_SOCKET_SERVER_URL || "http://localhost:5000";
+  process.env.NEXT_PUBLIC_SOCKET_SERVER_URL ||
+  "https://erp-tools-v3-1.onrender.com";
 
 export const socket = io(SERVER_URL, {
   autoConnect: false, // Don't connect automatically

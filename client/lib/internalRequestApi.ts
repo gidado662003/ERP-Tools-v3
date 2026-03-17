@@ -2,7 +2,9 @@ import axios from "axios";
 import { AllDataResponse } from "@/lib/internalRequestTypes";
 
 export const requestApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api",
+  baseURL:
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://erp-tools-v3-1.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
