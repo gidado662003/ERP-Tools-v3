@@ -7,6 +7,7 @@ const SERVER_URL =
 export const socket = io(SERVER_URL, {
   autoConnect: false, // Don't connect automatically
   transports: ["websocket", "polling"],
+  withCredentials: true,
 });
 
 // Socket event handlers

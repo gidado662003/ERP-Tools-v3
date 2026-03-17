@@ -21,12 +21,14 @@ export default function SocketInitializer() {
   //     "role": "admin",
   //     "department": "Development"
   // }
-  const userId = user?.id;
+  const userId = user?._id;
   console.log("SocketInitializer - userId:", userId);
 
   useEffect(() => {
     if (isAuthenticated && userId) {
-      socket.auth = { userId: String(userId) };
+      if (userId) {
+        socket.auth = { userId };
+      }
       socket.connect();
 
       const onConnect = () => setIsConnected(true);
