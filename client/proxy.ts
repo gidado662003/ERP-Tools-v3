@@ -24,9 +24,9 @@ export function proxy(request: NextRequest) {
       pathname === route || (route !== "/" && pathname.startsWith(route)),
   );
 
-  if (isProtected && !isPublicRoute && !token) {
-    return NextResponse.redirect(new URL("/auth/login", request.url));
-  }
+  // if (isProtected && !isPublicRoute && !token) {
+  //   return NextResponse.redirect(new URL("/auth/login", request.url));
+  // }
 
   return NextResponse.next();
 }
