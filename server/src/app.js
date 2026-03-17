@@ -8,6 +8,10 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(cookieParser());
 // CORS Configuration
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://erp-tools-v3.vercel.app",
+];
 const corsOptions = {
   origin: function (origin, callback) {
     // allow requests with no origin (like Postman)
